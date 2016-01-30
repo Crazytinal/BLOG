@@ -1,0 +1,33 @@
+div.container
+  .row
+    .col-md-8
+      div.blog-header
+        h1.blog-title  Blog hood 
+      a.btn.btn-info(href='/addPost', ng-show="user != 'guest'") Add a new post
+      p.lead There are {{length}} posts
+      div.post(ng-repeat='post in posts | filter: search')
+        hr
+        h2 {{post.title}}
+        p.lead by  {{post.author}}
+        p Posted on  {{post.time}}
+        hr
+        div {{post.text}}
+        .operation(ng-show="user == 'administer' || user == post.author")
+          a(href='/readPost/{{post.id}}') More
+          | -  
+          a(href='/editPost/{{post.id}}') Edit
+          |  -   
+          a(href='/deletePost/{{post.id}}') Delete
+        .operation(ng-hide="user == 'administer' || user==post.author")
+          a(href='/readPost/{{post.id}}') More
+        .operation(ng-show="user=='administer'")
+          a(href='/togglePost/{{post.id}}', ng-show="post.visible==true") Hide
+          a(href='/togglePost/{{post.id}}', ng-hide="post.visible==true") Show
+      p.pager
+        pager(page-count="pageCount", current-page="currentPage", on-page-change="onPageChange()")
+    .col-md-4
+        .well
+          h4 Blog Search
+          .input-group
+            input.form-control(type='text', ng-model='search', placeholder='Search', ng-change='getPostNum()')
+

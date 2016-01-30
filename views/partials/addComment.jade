@@ -1,0 +1,10 @@
+.row
+  .col-md-8
+    div.blog-header
+      h1.blog-title  Blog hood 
+    .well
+      h4 leave a Comment:
+      form(role="form")
+        .form-group
+          textarea.form-control(ng-model='form.text', rows='3')
+        button(ng-click='submit()').btn.btn-primary Submit Post

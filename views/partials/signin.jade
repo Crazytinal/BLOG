@@ -1,0 +1,18 @@
+div.container
+  .row
+    .col-md-8
+      div.blog-header
+        h1.blog-title  Blog hood 
+      div.container
+        form.form-signin
+          h2.form-signin-heading Please sign in
+          span {{errorMessage}}
+          label(for="inputusername", class="sr-only") username
+          input(type="username", id="inputUsername", class="form-control", placeholder="Username", ng-model='form.username')
+          label(for="inputPassword", class="sr-only") Password
+          input(type="password", id="inputPassword", class="form-control", placeholder="Password", ng-model='form.password')
+          div.checkbox
+            label
+            input(type="checkbox")
+            span remember me
+          button(class="btn btn-lg btn-primary btn-block", type="submit" ng-click="signin()") Sign in

@@ -1,0 +1,25 @@
+div.container
+  .row
+    .col-md-8
+      div.blog-header
+        h1.blog-title  Blog hood 
+      form.form-signin
+        h2.form-signin-heading Please regist
+        
+        div.input-group
+          .input-group
+            label(for="username", class="sr-only") Username
+            input(type="text", id="username", class="form-control", placeholder="Username", ng-model=' form.username', ng-change='checkUsername()')
+            span.error
+    
+          .input-group
+            label(for="email", class="sr-only") Email address
+            input(type="email", id="email", class="form-control", placeholder="Email address", ng-model='form.email')
+            span.error
+    
+          .input-group
+            label(for="password", class="sr-only") Password
+            input(type="password", id="password", class="form-control", placeholder="Password", ng-model='form.password')
+            span.error
+              
+          button(class="btn btn-lg btn-primary btn-block", type="submit" ng-click="regist()") regist

@@ -1,0 +1,12 @@
+div.container
+  .row
+    .col-md-8
+      div.blog-header
+        h1.blog-title  Blog hood 
+      //- h2 {{post.title}}
+      //- div {{post.text}}
+      p
+        | Are you sure you want to hide this post? 
+        button(ng-click='togglePost()') Yes
+        |  - 
+        button(ng-click='home()') No thanks

@@ -1,0 +1,26 @@
+div.container
+  .row
+    .col-md-8
+      div.blog-header
+        h1.blog-title  Blog hood 
+      section
+        h3 {{post.title}}
+        p by {{post.author}}
+        div {{post.text}}
+        a.btn.btn-info(href="/addComment/{{post.id}}/{{post.author}}") Comment
+        div(ng-repeat="comment in post.comments").media
+            a.pull-left(href='#')
+              img.media-object(src='/default.gif', alt="")
+            .media-body 
+              h4.media-heading {{comment.fromUser}}{{comment.toUser}}:
+                small.pull-right {{comment.time}}
+                br
+              {{comment.text}}
+
+
+             a.addComments(href='/addComment/{{post.id}}/{{comment.fromUser}}', ng-hide="user==comment.fromUser && user != 'administer'") Comment
+             | -  
+             a.deleteComments(href='/deleteComment/{{post.id}}/{{comment.id}}', ng-show="user == 'administer' || user==comment.fromUser") Delete 
+             | -  
+             a.hideComments(href='/toggleComment/{{post.id}}/{{comment.id}}', ng-show="user == 'administer' && comment.visible") Hide   
+             a.hideComments(href='/toggleComment/{{post.id}}/{{comment.id}}', ng-show="user == 'administer' && ! comment.visible") Show   
